@@ -1,0 +1,29 @@
+.popularText {
+  background: #1572D31A;
+  padding: 16px 32px;
+  border-radius: 8px;
+  color: #1572D3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+
+}
+
+.carsTitle {
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 49.4px;
+  color: #333;
+
+}
+
+@media only screen and (max-width: 768px) {
+  .carsTitle {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .popularText {
+    padding: 10px 30px;
+  }
+}

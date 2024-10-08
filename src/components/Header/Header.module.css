@@ -1,0 +1,90 @@
+.imgHeader {
+  max-width: 60%;
+  animation-duration: 2s;
+  animation-name: animate_img
+}
+
+.headerSection {
+  margin-bottom: 120px;
+}
+
+@keyframes animate_img {
+  0% {
+    display: none;
+    max-width: 20%
+  }
+
+  to {
+    display: inline;
+    max-width: 60%
+  }
+}
+
+.headerContent {
+  max-width: 23%;
+  margin-left: 10vw;
+}
+
+.headerTitle {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.headerTitle span {
+  color: #1572d3
+}
+
+@media only screen and (max-width: 768px) {
+  .headerSection {
+    flex-direction: column-reverse;
+    margin-bottom: 0;
+  }
+
+  .headerContent {
+    max-width: 100%;
+    margin: 0 5vw;
+  }
+
+  .headerTitle {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .btnSearch {
+    right: 25px;
+    height: 40px;
+    width: 80px;
+    top: 12px;
+    font-size: 14px;
+  }
+
+  .serachContent input {
+    height: 65px;
+  }
+
+  .serachContent input::placeholder {
+    font-size: 14px;
+  }
+
+  .imgHeader {
+    align-self: flex-end;
+    max-width: 75%;
+    animation-duration: 2s;
+    animation-name: car;
+  }
+
+  @keyframes car {
+    0% {
+      display: none;
+      max-width: 20%
+    }
+
+    to {
+      display: inline;
+      max-width: 75% !important
+    }
+  }
+
+
+
+}

@@ -1,0 +1,29 @@
+.footerSection {
+  background: #051C34;
+
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #fff;
+
+}
+
+.footerItem {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #d6d6d6;
+  margin-bottom: 4px;
+  text-decoration: none;
+}
+
+.copyright {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: #d6d6d6;
+}

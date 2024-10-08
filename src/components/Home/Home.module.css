@@ -1,0 +1,6 @@
+.homeBg{
+  background-image: url(../../assets/images/framebg.png);
+  background-position-x: right;
+  background-size: 40%;
+  background-repeat: no-repeat;
+}

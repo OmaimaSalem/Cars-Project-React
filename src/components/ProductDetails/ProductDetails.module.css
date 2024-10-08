@@ -1,0 +1,81 @@
+.popularText {
+  background: #1572D31A;
+  padding: 10px 32px;
+  border-radius: 8px;
+  color: #1572D3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  display: inline;
+}
+
+.detailsImage {
+  padding-block: 160px;
+  background-image: url(../../assets/images/home/sec-7/frame.png);
+  background-position-x: left;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+.detailsData {
+  padding-block: 90px;
+}
+
+.popularTitle {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 44px;
+  color: #333333;
+  padding-top: 20px;
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.detailsImage .carImg {
+  max-width: 90%;
+  width: 100%;
+  animation-duration: 2s;
+  animation-name: car_img
+}
+
+@keyframes car_img {
+  0% {
+    display: none;
+    max-width: 50%
+  }
+
+  to {
+    display: inline;
+    max-width: 90%
+  }
+}
+
+.textMuted {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #959595;
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .detailsImage {
+    padding-block: 10px;
+    background-size: 55%;
+  }
+
+  .detailsImage .carImg {
+    max-width: 80%;
+  }
+
+  .detailsData {
+    padding-block: 20px;
+  }
+
+  .popularTitle {
+    font-size: 20px;
+    line-height: 30px;
+    width: 100%;
+  }
+
+}

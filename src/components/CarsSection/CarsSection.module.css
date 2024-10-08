@@ -1,0 +1,73 @@
+.popularText{
+  background: #1572D31A;
+  padding: 16px 32px ;
+  border-radius: 8px;
+  color: #1572D3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  
+}
+.carsTitle{
+font-size: 38px;
+font-weight: 500;
+line-height: 49.4px;
+color: #333;
+
+}
+.btnOutline{
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 19px 34px;
+  color: #4e4e4e;
+font-size: 14px;
+font-weight: 500;
+line-height: 18.2px;
+
+}
+.card{
+  border-radius: 16px;
+  box-shadow: 0px 12px 24px 0px #104C8B29;
+  border: none;
+
+}
+.cardTitle{
+
+font-size: 16px;
+font-weight: 500;
+line-height: 17px;
+color: #262626;
+
+}
+
+h6{
+font-size: 12px;
+font-weight: 500;
+line-height: 17px;
+color: #000;
+}
+.textMuted{
+color: #959595;
+font-size: 12px;
+font-weight: 400;
+line-height: 17px;
+padding-left: 4px;
+}
+.price{
+font-size: 16px;
+font-weight: 600;
+line-height: 17px;
+color: #000;
+
+}
+
+@media only screen and (max-width: 768px) {
+.carsTitle{
+  font-size: 26px;
+  line-height: 32px;
+}
+.popularText {
+  padding: 10px 30px;}
+
+
+}

@@ -1,0 +1,43 @@
+:root {
+  --main-color: #0b5ed7;
+  --small-font: 12px;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+.breadcrumb-item a {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #959595 !important;
+
+}
+
+.breadcrumb-item {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #000 !important;
+}
+
+.form-control:focus {
+  box-shadow: 0px 6px 12px 0px #135EAC1F !important;
+  border: 1px solid #000 !important;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .breadcrumb-item a,
+  .breadcrumb-item {
+    font-size: 16px;
+  }
+
+}

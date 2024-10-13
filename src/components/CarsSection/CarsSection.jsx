@@ -11,9 +11,9 @@ export default function CarsSection() {
   const [query, setQuery] = useState("");
   let getCars = async () => {
     try {
-      let response = await axios.get("https://freetestapi.com/api/v1/cars");
-      setCars(response.data);
-      setFilterdata(response.data);
+      let response = await axios.get("https://myfakeapi.com/api/cars/");
+      setCars(response.data.cars);
+      setFilterdata(response.data.cars);
     } catch (error) {
       console.log(error);
     }
@@ -29,7 +29,7 @@ export default function CarsSection() {
 
     if (getSearch.length > 0) {
       const searchdata = cars.filter((item) =>
-        item.make.toLowerCase().includes(getSearch)
+        item.car.toLowerCase().includes(getSearch)
       );
       setCars(searchdata);
       console.log(searchdata);

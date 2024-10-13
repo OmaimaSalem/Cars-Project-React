@@ -20,7 +20,7 @@ export default function ProductCard(props) {
                  <img alt="Card image cap" className="card-img-top" src={carImg} />
                </div>
                <div className="card-body">
-                 <h5 className={productStyle.cardTitle}>{productInfo.make}</h5>
+                 <h5 className={productStyle.cardTitle}>{productInfo.car}</h5>
                  <div className="d-flex align-items-baseline">
                    <img src={starIc} alt="star icon" />
                    <h6 className="mx-1">4.6</h6>

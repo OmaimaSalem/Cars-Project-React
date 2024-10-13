@@ -30,9 +30,9 @@ export default function AllCars() {
 
   let fetchCars = async () => {
     try {
-      let response = await axios.get(`https://freetestapi.com/api/v1/cars?page=${currentPage}&limit=${itemsPerPage}`);
-      setCars(response.data);
-      console.log(response.data);
+      let response = await axios.get(`https://myfakeapi.com/api/cars?page=${currentPage}&limit=${itemsPerPage}`);
+      setCars(response.data.cars);
+      console.log(response.data.cars);
     } catch (error) {
       console.log(error);
     }
@@ -51,18 +51,20 @@ export default function AllCars() {
   const handlePageClick = async (data) => {
     let currentPage = data.selected + 1;
     console.log(currentPage);
-    const carsPage = await setCurrentPage(currentPage);
-    const carsLimit = await setItemsPerPage(itemsPerPage);
-    console.log(carsPage);
-    console.log(carsLimit);
+    // const carsPage = await setCurrentPage(currentPage);
+    // const carsLimit = await setItemsPerPage(itemsPerPage );
+    // console.log(carsPage);
+    // console.log(carsLimit);
   };
+
+
 
   /*search function */
   const handlesearch = (event) => {
     const getSearch = event.target.value;
     if (getSearch.length > 0) {
       const searchdata = cars.filter((item) =>
-        item.make.toLowerCase().includes(getSearch)
+        item.car.toLowerCase().includes(getSearch)
       );
       setCars(searchdata);
     } else {

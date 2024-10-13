@@ -35,7 +35,7 @@ export default function ProductDetails() {
             Car Details
             </li>
             <li aria-current="page" className="breadcrumb-item active">
-            {product.make}
+            {product.car}
             </li>
           </ol>
         </nav>

@@ -3,12 +3,16 @@ import userImage from "../../assets/images/card/user.png";
 import dImage from "../../assets/images/card/d8wxke_2_.png";
 import frameImage from "../../assets/images/card/frame.png";
 import doorImage from "../../assets/images/card/doors.png";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import detailsStyles from "./ProductDetails.module.css"
 import { Link } from "react-router-dom";
 export default function ProductDetails() {
+  const navigate = useNavigate();
+  function navigateToAllCars() {
+    navigate("/all-cars");
+  }
   let { id } = useParams();
 
   const [product, setProduct] = useState({});
@@ -29,7 +33,7 @@ export default function ProductDetails() {
               <Link className="link-opacity-100-hover pointer" to="/">Home</Link>
             </li>
             <li className="breadcrumb-item">
-              <Link className="link-opacity-100-hover pointer" to="home/all-cars">All Cars</Link>
+              <Link className="link-opacity-100-hover pointer" onClick={navigateToAllCars}>All Cars</Link>
             </li>
             <li className="breadcrumb-item active">
             Car Details

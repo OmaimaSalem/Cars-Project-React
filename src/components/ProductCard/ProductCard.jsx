@@ -6,11 +6,14 @@ import frameIc from "../../assets/images/card/frame.png";
 import airIc from "../../assets/images/card/d8wxke_2_.png";
 import doorIc from "../../assets/images/card/doors.png";
 import arrowIc from "../../assets/images/card/arrow-right.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function ProductCard(props) {
-
+  const navigate = useNavigate();
+  function navigateToCarDetails() {
+    navigate("/details");
+  }
   let {productInfo}=props;
   return (
     <>
@@ -61,7 +64,7 @@ export default function ProductCard(props) {
                    </div>
                  </div>
                  <div>
-                   <Link to={`/car/${productInfo.id}`} className="btn btn-primary w-100">
+                   <Link   onClick={navigateToCarDetails} className="btn btn-primary w-100">
                      Rent Now
                      <img src={arrowIc} className="ms-2" />
                    </Link>

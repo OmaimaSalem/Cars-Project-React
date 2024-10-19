@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Search from "../Search/Search";
-import ReactPaginate from "react-paginate";
-
+import { Pagination } from "flowbite-react";
 export default function AllCars() {
   let [cars, setCars] = useState([]);
   const [filterdata, setFilterdata] = useState([]);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(10);
+  const [totalPages, setTotalPages] = useState(1);
 
   let getCars = async () => {
     try {
@@ -27,37 +27,33 @@ export default function AllCars() {
   }, []);
 
   /*paginate */
-
-  let fetchCars = async () => {
+  async function getCardetails() {
     try {
-      let response = await axios.get(`https://myfakeapi.com/api/cars?page=${currentPage}&limit=${itemsPerPage}`);
-      setCars(response.data.cars);
-      console.log(response.data.cars);
+      const { data } = await axios.get(`https://myfakeapi.com/api/cars/`);
+      if (Array.isArray(data.cars.splice(0, 30))) {
+        setCars(data.cars.splice(0, 30));
+        setTotalPages(Math.ceil(data.length / itemsPerPage));
+      } else {
+        setCars([]);
+        setTotalPages(1);
+      }
     } catch (error) {
-      console.log(error);
+      console.log("Error fetching car details:", error);
+      setCars([]);
+      setTotalPages(1);
     }
-  };
+  }
+
   useEffect(() => {
-    fetchCars();
-  },[currentPage, itemsPerPage]);
+    getCardetails();
+  }, []);
 
-
-  // const totalPages = Math.ceil(cars.length / itemsPerPage);
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems = cars.slice(startIndex, endIndex);
-
-  const handlePageClick = async (data) => {
-    let currentPage = data.selected + 1;
-    console.log(currentPage);
-    // const carsPage = await setCurrentPage(currentPage);
-    // const carsLimit = await setItemsPerPage(itemsPerPage );
-    // console.log(carsPage);
-    // console.log(carsLimit);
+  const onPageChange = (page) => {
+    setCurrentPage(page);
   };
-
-
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = cars.slice(indexOfFirstItem, indexOfLastItem);
 
   /*search function */
   const handlesearch = (event) => {
@@ -72,8 +68,6 @@ export default function AllCars() {
     }
     setQuery(getSearch);
   };
-
-
 
   return (
     <div className="container">
@@ -109,30 +103,26 @@ export default function AllCars() {
       </div>
       <Search handlesearch={handlesearch} query={query} />
       <div className="row d-flex justify-content-center mt-md-0 mt-4">
-        {currentItems.map((car) => {
-          return <ProductCard key={car.id} productInfo={car} />;
-        })}
-      
+        {currentItems.length === 0 ? (
+          <div className="col-md--4 text-center text-danger my-5">
+            No cars available with this name.
+          </div>
+        ) : (
+          currentItems.map((car) => {
+            return <ProductCard key={car.id} productInfo={car} />;
+          })
+        )}
       </div>
-    <ReactPaginate
-        previousLabel={"<<"}
-        nextLabel={">>"}
-        breakLabel={"..."}
-        pageCount={3}
-        marginPagesDisplayed={4}
-        pageRangeDisplayed={1}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination justify-content-center"}
-        pageClassName={"page-item"}
-        pageLinkClassName={"page-link"}
-        previousClassName={"page-item"}
-        previousLinkClassName={"page-link"}
-        nextClassName={"page-item"}
-        nextLinkClassName={"page-link"}
-        breakClassName={"page-item"}
-        breakLinkClassName={"page-link"}
-        activeClassName={"active"}
-      /> 
+      <div className={carStyles.pagination}>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={3}
+          onPageChange={onPageChange}
+          previousLabel={"<<"}
+          nextLabel={">>"}
+          breakLabel={"..."}
+        />
+      </div>
     </div>
   );
 }

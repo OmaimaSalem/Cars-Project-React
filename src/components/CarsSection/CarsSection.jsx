@@ -1,11 +1,15 @@
 import carsStyles from "./CarsSection.module.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../ProductCard/ProductCard";
 import Search from "../Search/Search";
 
 export default function CarsSection() {
+  const navigate = useNavigate();
+  function navigateToAllCars() {
+    navigate("/all-cars");
+  }
   let [cars, setCars] = useState([]);
   const [filterdata, setFilterdata] = useState([]);
   const [query, setQuery] = useState("");
@@ -66,7 +70,7 @@ export default function CarsSection() {
         <div className="d-flex justify-content-center my-2">
           <Link
             className={`btn btn-outline-secondary ${carsStyles.btnOutline}`}
-            to="home/all-cars"
+          onClick={navigateToAllCars}
           >
             Show all vehicles
             <i className="px-2 fas fa-long-arrow-right"></i>

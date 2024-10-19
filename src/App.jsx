@@ -21,11 +21,11 @@ export default function App() {
         
         },
         {
-          path: "home/all-cars",
+          path: "all-cars",
           element: <AllCars />,
         },
         {
-          path: "/car/:id",
+          path: "details",
           element: <ProductDetails/>
         }
       ],
